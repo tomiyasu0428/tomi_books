@@ -23,7 +23,7 @@
 - [x] `create-next-app` で TypeScript + TailwindCSS プロジェクト生成 - website/ディレクトリ作成済み
 - [x] GROQ クエリユーティリティ (`lib/sanity.ts`) 作成 - 基本クエリ定義済み
 - [x] トップページ (`/`) で最新レビューカード表示 - モックデータで実装済み
-- [ ] 動的ルート `/review/[slug]` で書籍詳細ページ
+- [x] 動的ルート `/review/[slug]` で書籍詳細ページ
 - [ ] ISR 設定 & Sanity Webhook 連携
 
 ## Phase 3: UI デザイン & ブランディング
