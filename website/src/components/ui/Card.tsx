@@ -1,7 +1,6 @@
 import React, {
   ElementType,
   ComponentPropsWithoutRef,
-  ForwardRefRenderFunction,
   forwardRef,
 } from 'react';
 

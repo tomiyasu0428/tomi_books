@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'book-tomi',
   title: '耳で旅する本屋さん',
   
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqv90y',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqw90y',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   
   plugins: [
@@ -67,7 +67,7 @@ export default defineConfig({
   
   // APIバージョン
   api: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqv90y',
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqw90y',
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: '2024-07-11',
   },

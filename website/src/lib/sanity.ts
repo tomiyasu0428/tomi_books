@@ -1,8 +1,8 @@
-import { createClient } from '@sanity/client'
+import { createClient } from 'next-sanity'
 import { defineQuery } from 'next-sanity'
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqv90y',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'o9qqw90y',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-07-11',
   useCdn: true,
@@ -81,3 +81,20 @@ export const CATEGORY_REVIEWS_QUERY = defineQuery(`
     }
   }
 `)
+
+// データ取得関数
+export function getLatestReviews() {
+  return client.fetch(REVIEWS_QUERY)
+}
+
+export function getReviewBySlug(slug: string) {
+  return client.fetch(REVIEW_QUERY, { slug })
+}
+
+export function getAuthorBySlug(slug: string) {
+  return client.fetch(AUTHOR_QUERY, { slug })
+}
+
+export function getReviewsByCategory(categorySlug: string) {
+  return client.fetch(CATEGORY_REVIEWS_QUERY, { categorySlug })
+}

@@ -1,116 +1,16 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { getLatestReviews } from '@/lib/sanity'
 
 export const metadata: Metadata = {
   title: 'レビュー一覧 - 耳で旅する本屋さん',
   description: 'オーディオブック作品のレビューを一覧でご覧いただけます。店主ブックとみが厳選した作品たちをお楽しみください。',
 }
 
-// モックデータ（後でSanityから取得）
-const mockReviews = [
-  {
-    _id: '1',
-    title: '心に響く感動の名作',
-    slug: { current: 'kokoro-ni-hibiku-kando-no-meisaku' },
-    rating: 5,
-    publishedAt: '2024-07-01T00:00:00Z',
-    book: {
-      title: '君の名は。',
-      author: { name: '新海誠', slug: { current: 'makoto-shinkai' } },
-      narrator: { name: '神木隆之介', slug: { current: 'ryunosuke-kamiki' } },
-      coverImage: null
-    },
-    categories: [
-      { title: 'アニメ・ライトノベル', slug: { current: 'anime-light-novel' } },
-      { title: '感動', slug: { current: 'kando' } }
-    ]
-  },
-  {
-    _id: '2',
-    title: 'ビジネスマンの必読書',
-    slug: { current: 'businessman-no-hissudokusho' },
-    rating: 4,
-    publishedAt: '2024-06-28T00:00:00Z',
-    book: {
-      title: '7つの習慣',
-      author: { name: 'スティーブン・R・コヴィー', slug: { current: 'stephen-covey' } },
-      narrator: { name: '朗読太郎', slug: { current: 'roudoku-taro' } },
-      coverImage: null
-    },
-    categories: [
-      { title: 'ビジネス・自己啓発', slug: { current: 'business-self-help' } }
-    ]
-  },
-  {
-    _id: '3',
-    title: 'ミステリーの新境地',
-    slug: { current: 'mystery-no-shinkyochi' },
-    rating: 5,
-    publishedAt: '2024-06-25T00:00:00Z',
-    book: {
-      title: '容疑者Xの献身',
-      author: { name: '東野圭吾', slug: { current: 'keigo-higashino' } },
-      narrator: { name: '朗読花子', slug: { current: 'roudoku-hanako' } },
-      coverImage: null
-    },
-    categories: [
-      { title: 'ミステリー・サスペンス', slug: { current: 'mystery-suspense' } }
-    ]
-  },
-  {
-    _id: '4',
-    title: '哲学への誘い',
-    slug: { current: 'tetsugaku-e-no-izanai' },
-    rating: 4,
-    publishedAt: '2024-06-20T00:00:00Z',
-    book: {
-      title: '嫌われる勇気',
-      author: { name: '岸見一郎', slug: { current: 'ichiro-kishimi' } },
-      narrator: { name: '朗読三郎', slug: { current: 'roudoku-saburo' } },
-      coverImage: null
-    },
-    categories: [
-      { title: '心理学・哲学', slug: { current: 'psychology-philosophy' } }
-    ]
-  },
-  {
-    _id: '5',
-    title: 'SF小説の傑作',
-    slug: { current: 'sf-shousetsu-no-kessaku' },
-    rating: 5,
-    publishedAt: '2024-06-15T00:00:00Z',
-    book: {
-      title: '三体',
-      author: { name: '劉慈欣', slug: { current: 'liu-cixin' } },
-      narrator: { name: '朗読四郎', slug: { current: 'roudoku-shiro' } },
-      coverImage: null
-    },
-    categories: [
-      { title: 'SF・ファンタジー', slug: { current: 'scifi-fantasy' } }
-    ]
-  },
-  {
-    _id: '6',
-    title: '歴史好きにおすすめ',
-    slug: { current: 'rekishi-zuki-ni-osusume' },
-    rating: 4,
-    publishedAt: '2024-06-10T00:00:00Z',
-    book: {
-      title: '応仁の乱',
-      author: { name: '呉座勇一', slug: { current: 'yuichi-goza' } },
-      narrator: { name: '朗読五郎', slug: { current: 'roudoku-goro' } },
-      coverImage: null
-    },
-    categories: [
-      { title: '歴史・時代小説', slug: { current: 'history' } }
-    ]
-  }
-]
+type Review = Awaited<ReturnType<typeof getLatestReviews>>[number];
 
 export default async function ReviewsPage() {
-  // 実際はSanityからデータを取得
-  // const reviews = await client.fetch(REVIEWS_QUERY)
-  const reviews = mockReviews
+  const reviews: Review[] = await getLatestReviews();
 
   const renderStars = (rating: number) => {
     return '★'.repeat(rating) + '☆'.repeat(5 - rating)
@@ -197,7 +97,7 @@ export default async function ReviewsPage() {
                 {/* カテゴリータグ */}
                 {review.categories && review.categories.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    {review.categories.slice(0, 2).map((category, index) => (
+                    {review.categories.slice(0, 2).map((category: any, index: number) => (
                       <span
                         key={index}
                         className="inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full"
