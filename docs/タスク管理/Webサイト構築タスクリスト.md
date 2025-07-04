@@ -6,9 +6,10 @@
 
 ## Phase 0: 技術基盤整備
 
-- [x] Sanity プロジェクト作成 (`npm create sanity@latest`) - プロジェクトID: o9qqv90y
+- [x] Sanity プロジェクト作成 (`npm create sanity@latest`) - プロジェクトID: `o9qqw90y` に修正済み
 - [x] データセット `production` を作成
 - [x] GitHub リポジトリ & Vercel プロジェクト初期化
+- [x] ローカル環境変数 (`.env.local`) 設定完了
 - [ ] Vercel 環境変数 (SANITY_PROJECT_ID, DATASET, TOKEN) 設定
 
 ## Phase 1: コンテンツモデリング
@@ -16,14 +17,14 @@
 - [x] スキーマ定義 (`book`, `author`, `narrator`, `review`, `category`) - 全スキーマ完成
 - [x] 参照フィールド & Portable Text 設計 - blockContent.tsで実装
 - [x] スキーマレビュー (店主 & Dev MTG) - TypeScript型定義含めて完了
-- [ ] 初期モックデータ 5件インポート
+- [x] 初期データ 5件インポート完了 (`scripts/seed-data.ts` を使用)
 
 ## Phase 2: フロントエンド雛形 (Next.js App Router)
 
 - [x] `create-next-app` で TypeScript + TailwindCSS プロジェクト生成 - website/ディレクトリ作成済み
 - [x] GROQ クエリユーティリティ (`lib/sanity.ts`) 作成 - 基本クエリ定義済み
-- [x] トップページ (`/`) で最新レビューカード表示 - モックデータで実装済み
-- [x] 動的ルート `/review/[slug]` で書籍詳細ページ
+- [x] トップページ (`/`) で最新レビューカード表示 - **安定化のため一時的にモックデータで表示中**
+- [ ] 動的ルート `/review/[slug]` で書籍詳細ページ
 - [ ] ISR 設定 & Sanity Webhook 連携
 
 ## Phase 3: UI デザイン & ブランディング
