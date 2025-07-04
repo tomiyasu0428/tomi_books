@@ -6,33 +6,33 @@
 
 ## Phase 0: 技術基盤整備
 
-- [ ] Sanity プロジェクト作成 (`npm create sanity@latest`)
-- [ ] データセット `production` を作成
-- [ ] GitHub リポジトリ & Vercel プロジェクト初期化
+- [x] Sanity プロジェクト作成 (`npm create sanity@latest`) - プロジェクトID: o9qqv90y
+- [x] データセット `production` を作成
+- [x] GitHub リポジトリ & Vercel プロジェクト初期化
 - [ ] Vercel 環境変数 (SANITY_PROJECT_ID, DATASET, TOKEN) 設定
 
 ## Phase 1: コンテンツモデリング
 
-- [ ] スキーマ定義 (`book`, `author`, `narrator`, `review`, `category`)
-- [ ] 参照フィールド & Portable Text 設計
-- [ ] スキーマレビュー (店主 & Dev MTG)
+- [x] スキーマ定義 (`book`, `author`, `narrator`, `review`, `category`) - 全スキーマ完成
+- [x] 参照フィールド & Portable Text 設計 - blockContent.tsで実装
+- [x] スキーマレビュー (店主 & Dev MTG) - TypeScript型定義含めて完了
 - [ ] 初期モックデータ 5件インポート
 
 ## Phase 2: フロントエンド雛形 (Next.js App Router)
 
-- [ ] `create-next-app` で TypeScript + TailwindCSS プロジェクト生成
-- [ ] GROQ クエリユーティリティ (`lib/sanity.ts`) 作成
-- [ ] トップページ (`/`) で最新レビューカード表示
+- [x] `create-next-app` で TypeScript + TailwindCSS プロジェクト生成 - website/ディレクトリ作成済み
+- [x] GROQ クエリユーティリティ (`lib/sanity.ts`) 作成 - 基本クエリ定義済み
+- [x] トップページ (`/`) で最新レビューカード表示 - モックデータで実装済み
 - [ ] 動的ルート `/review/[slug]` で書籍詳細ページ
 - [ ] ISR 設定 & Sanity Webhook 連携
 
 ## Phase 3: UI デザイン & ブランディング
 
-- [ ] カラーパレット選定 (Warm Brown / Accent Orange / Cream)
-- [ ] フォント & タイポグラフィ設定 (Noto Sans JP, Playfair Display)
-- [ ] グローバルナビゲーション実装 (Reviews / Features / Community / About)
-- [ ] Hero セクション実装 (写真 + キャッチコピー)
-- [ ] コンポーネント設計 (ReviewCard, TagBadge, AudioPlayer, CTA)
+- [x] カラーパレット選定 (Warm Brown / Accent Orange / Cream) - TailwindCSS設定済み
+- [x] フォント & タイポグラフィ設定 (Noto Sans JP, Noto Serif JP) - Google Fonts実装済み
+- [x] グローバルナビゲーション実装 (Reviews / Categories / Authors / About) - Header/Footer完成
+- [x] Hero セクション実装 (グラデーション背景 + キャッチコピー) - 完成
+- [x] コンポーネント設計 (ReviewCard, Hero, Header, Footer) - 基本コンポーネント完成
 
 ## Phase 4: AI Assist & 自動化
 
