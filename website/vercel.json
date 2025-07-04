@@ -1,0 +1,19 @@
+{
+  "projectSettings": {
+    "framework": "nextjs",
+    "buildCommand": "npm run build",
+    "outputDirectory": ".next",
+    "installCommand": "npm install",
+    "devCommand": "npm run dev"
+  },
+  "env": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "o9qqv90y",
+    "NEXT_PUBLIC_SANITY_DATASET": "production",
+    "NEXT_PUBLIC_SANITY_API_VERSION": "2024-07-11"
+  },
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  }
+}

@@ -11,11 +11,13 @@
     "sanity:build": "sanity build",
     "sanity:deploy": "sanity deploy",
     "sanity:extract": "sanity schema extract",
-    "sanity:typegen": "sanity typegen generate"
+    "sanity:typegen": "sanity typegen generate",
+    "seed": "tsx scripts/seed-data.ts"
   },
   "dependencies": {
     "@sanity/client": "^7.6.0",
     "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.96.0",
     "next": "15.3.5",
     "next-sanity": "^9.12.0",
     "react": "^19.0.0",
@@ -30,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }
